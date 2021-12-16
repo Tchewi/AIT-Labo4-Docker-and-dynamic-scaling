@@ -9,6 +9,9 @@ LABEL Daniel Palumbo <daniel.palumbo@heig-vd.ch>
 RUN apt-get update && apt-get -y install wget curl vim iputils-ping rsyslog
 
 # TODO: [S6] Install
+RUN curl -sSLo /tmp/s6.tar.gz https://github.com/just-containers/s6-overlay/releases/download/v2.1.0.2/s6-overlay-amd64.tar.gz \
+  && tar xzf /tmp/s6.tar.gz -C / \
+  && rm -f /tmp/s6.tar.gz
 
 # TODO: [Serf] Install
 
@@ -18,8 +21,12 @@ RUN apt-get update && apt-get -y install wget curl vim iputils-ping rsyslog
 
 # TODO: [S6] Replace the two following instructions
 # Copy all the scripts and make them executable
-COPY scripts/ /scripts/
-RUN chmod +x /scripts/*.sh
+#COPY scripts/ /scripts/
+#RUN chmod +x /scripts/*.sh
+
+COPY services/ha /etc/services.d/ha
+RUN chmod +x /etc/services.d/ha/run
+
 
 # TODO: [Serf] Add Serf S6 setup
 
@@ -46,4 +53,10 @@ ENV ROLE balancer
 
 # TODO: [S6] Replace the following instruction
 # Command executed when the container starts
-CMD [ "/scripts/run.sh" ]
+#CMD [ "/scripts/run.sh" ]
+
+# This will start S6 as our main process in our container
+ENTRYPOINT ["/init"]
+
+
+
