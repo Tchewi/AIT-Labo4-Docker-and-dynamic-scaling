@@ -268,7 +268,26 @@ celui-ci est disponible dans le dossier nodes
 
 ### Tâche 6
 
-2. *Give your own feelings about the final solution. Propose improvements or ways to do the things differently. If any, provide references to your readings for the improvements.
+1. *Take a screenshots of the HAProxy stat page showing more than 2 web*
+   *applications running. Additional screenshots are welcome to see a*
+   *sequence of experimentations like shutting down a node and starting*
+   *more nodes.*
+
+![HAProxy_StatPage-q6-2](./img/HAProxy_StatPage-q6-2.PNG)
+
+*Also provide the output of `docker ps` in a log file. At least* 
+*one file is expected. You can provide one output per step of your*
+*experimentation according to your screenshots.*
+
+Voir fichier logs
+
+Remarques : 
+
+Nous avons voulu également lancer une webapp après avoir mis en place l'infrastructure avec le docker-compose. Malheureusement, pour une raison inconnue, nous n'arrivons pas à faire rejoindre une application sans passer par l'ajout dans le docker-compose.
+
+![q6-bugs](./img/q6-bugs.PNG)
+
+2. *Give your own feelings about the final solution. Propose improvements or ways to do the things differently. If any, provide references to your readings for the improvements.*
 
 La solution est bonne, car on peut ajouter des nodes sans changer les fichiers de configuration, ce qui économise pas mal de temps. Actuellement on doit lancer les container manuellement, ce qui fait qu'on doit monitorer le traffic et ajouter/enlever des container nous-même. Cela pose un problème au niveau de la scalabilité. Cette solution n'est pas utilisable pour les sites avec un traffic irrégulier. On pourrais améliorer ça avec une automatisation de l'ajout de container.
 
