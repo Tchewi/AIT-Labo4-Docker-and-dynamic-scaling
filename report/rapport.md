@@ -219,7 +219,7 @@ On pourrait créer une image de base contenant moins d'outils, par exemple uniqu
 
 Ainsi, si on souhaite n'avoir que le service s6 sans le serf, on aurait encore une image qu'on pourrait utiliser.
 
-2. *Provide the `/tmp/haproxy.cfg` file generated in the `ha` container after each step. Place the output into the `logs` folder like you already did for the Docker logs in the previous tasks. Three files are expected.*
+3. *Provide the `/tmp/haproxy.cfg` file generated in the `ha` container after each step. Place the output into the `logs` folder like you already did for the Docker logs in the previous tasks. Three files are expected.*
 
 *In addition, provide a log file containing the output of the `docker ps` console and another file (per container) with `docker inspect <container>`. Four files are expected.*
 
@@ -243,7 +243,7 @@ Les fichiers sont disponible dans le dossier question-1
 *2. Provide the list of files from the `/nodes` folder inside the `ha` container.*
 *One file expected with the command output.*
 
-Nous avons copié le dossier nodes pour éviter de devoir exécuter des commandes dans le conteneur. Celui-ci contient 2 fichiers : `7157d6f2890a` et `4676103748e6`
+Nous avons copié le dossier nodes pour éviter de devoir exécuter des commandes dans le conteneur car on a automatisé les tests (voir fichier test-1.sh et test-2.sh à la racine du repository). Celui-ci contient 2 fichiers : `7157d6f2890a` et `4676103748e6`
 
 Les fichiers sont disponibles dans le dossier question-2
 
